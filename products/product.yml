@@ -5,7 +5,7 @@ metadata:
   name: product 
 spec:
   selector:
-    app: myapp
+    app: product
   ports:
   - port: 80
     targetPort: 8080
@@ -26,14 +26,15 @@ spec:
         app: product 
     spec:
       containers:
-      - name: busybox 
-        image: busybox
       - name: product 
         image: rockink/product
-        # resources:
-        #   limits:
-        #     memory: "300Mi"
-        #     cpu: "500m"
+        env:
+          - name: "JAVA_TOOL_OPTIONS"
+            value: "-Xms200m -Xmx200m"
+        resources:
+          limits:
+            memory: "300Mi"
+            cpu: "500m"
         ports:
         - containerPort: 8080
 
