@@ -1,0 +1,42 @@
+# mongo is clustered.. deploy it as statefulset 
+
+# create headless service 
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+spec:
+  selector:
+    app: mongo
+  ports:
+  - port: 27017
+  clusterIP: None
+  
+--- 
+# statefulset for clustering purposes 
+apiVersion: apps/v1 
+kind: StatefulSet
+metadata: 
+  name: mongo 
+spec:
+  selector:
+    matchLabels:
+      app: mongo 
+  serviceName: mongo 
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        app: mongo 
+    spec:
+      containers:
+      - name: mongo 
+        image: mongo 
+  volumeClaimTemplates:
+  - metadata:
+      name: mongo-volume 
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 500Mi
