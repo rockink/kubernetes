@@ -1,5 +1,10 @@
 # Kubernetes Practice 
 
+### PRODUCT MICROSERVICE `./products`
+Our first microservice in kubernetes is Product `./products/product.yml`. It is implemented using `Spring Boot`. It displays the laptop products in the JSON format. 
+
+To run this, we would need to complete its dependencies, such as the database which it uses to store product information. **MongoDB** is the No-SQL solution for this. It is deployed by `mongo.yml`
+
 
 ### LOGGING 
 This is a logging part of the kubernetes infrastructure. We design the microservice based infrastructure 
