@@ -1,8 +1,10 @@
 # Kubernetes Practice 
 
-### Create namespace for our project 
-Use command `kubectl create namespace dev` to create a namespace. Namespace provides us with a logical isolation environment to work on. For our case, it will be in dev.  
-
+## Building the project 
+1. Create namespace `kubectl create -f namespaces.yml`. This will create `dev` and `logging` namespaces. 
+`dev` is where we will operate our application. `logging` is where we will operate our logging infrastructure. 
+2. Create products in `dev` namespace. `kubectl create -f products` 
+3. Create logging infrastructure in `logging` namespace. 
 
 
 ### PRODUCT MICROSERVICE `./products`
