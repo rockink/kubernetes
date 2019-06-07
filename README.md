@@ -3,9 +3,8 @@
 ## Building the project 
 1. Create namespace `kubectl create -f namespaces.yml`. This will create `dev` and `logging` namespaces. 
 `dev` is where we will operate our application. `logging` is where we will operate our logging infrastructure. 
-2. Create products in `dev` namespace. `kubectl create -f products` 
-3. Create logging infrastructure in `logging` namespace. 
-
+2. Run `kubectl create -f . --recusive` to create the rest of the infrastructure. 
+ 
 
 ### PRODUCT MICROSERVICE `./products`
 Our first microservice in kubernetes is Product `./products/product.yml`. It is implemented using `Spring Boot`. It displays the laptop products in the JSON format. 
